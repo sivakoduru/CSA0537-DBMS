@@ -1,0 +1,75 @@
+mysql> use employee;
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_employee |
++--------------------+
+| ajay               |
+| company            |
+| dinu               |
+| organization       |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> alter table organization add work varchar(20);
+Query OK, 2 rows affected (0.04 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> update organization set work="code" where dept="tester";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update organization set work="python" where dept="developer";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from organization;
++--------+------+-----------+-----------+--------+--------+
+| number | name | dept      | address   | salary | work   |
++--------+------+-----------+-----------+--------+--------+
+| 833200 | dinu | tester    | hyderabad |  70000 | code   |
+| 918223 | ajay | developer | banglore  |  80000 | python |
++--------+------+-----------+-----------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select*from organization where work IN('code');
++--------+------+--------+-----------+--------+------+
+| number | name | dept   | address   | salary | work |
++--------+------+--------+-----------+--------+------+
+| 833200 | dinu | tester | hyderabad |  70000 | code |
++--------+------+--------+-----------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) from organization where dept="developer";
++-------------+
+| sum(salary) |
++-------------+
+|       80000 |
++-------------+
+1 row in set (0.02 sec)
+
+mysql> select avg(salary) as average from organization;
++------------+
+| average    |
++------------+
+| 75000.0000 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select min(salary) as minimum from organization;
++---------+
+| minimum |
++---------+
+|   70000 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary) as maximum from organization;
++---------+
+| maximum |
++---------+
+|   80000 |
++---------+
+1 row in set (0.00 sec)
+
+mysql>
