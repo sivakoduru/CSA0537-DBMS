@@ -1,0 +1,42 @@
+mysql> use employee;
+Database changed
+
+mysql> create table organization(number int(10),name varchar(15),dept varchar(15),address varchar(15));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into organization values(833200,"dinu","tester","hyderabad");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into organization values(918223,"ajay","developer","hyderabad");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into organization values(831750,"mahi","implementation","hyderabad");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from organization;
++--------+------+----------------+-----------+
+| number | name | dept           | address   |
++--------+------+----------------+-----------+
+| 833200 | dinu | tester         | hyderabad |
+| 918223 | ajay | developer      | hyderabad |
+| 831750 | mahi | implementation | hyderabad |
++--------+------+----------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select name from organization;
++------+
+| name |
++------+
+| dinu |
+| ajay |
+| mahi |
++------+
+3 rows in set (0.00 sec)
+
+mysql> select*from organization where name="dinu";
++--------+------+--------+-----------+
+| number | name | dept   | address   |
++--------+------+--------+-----------+
+| 833200 | dinu | tester | hyderabad |
++--------+------+--------+-----------+
+1 row in set (0.01 sec)
