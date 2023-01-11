@@ -1,0 +1,49 @@
+mysql> use employee;
+Database changed
+mysql> select*from organization;
++--------+------+----------------+----------+
+| number | name | dept           | address  |
++--------+------+----------------+----------+
+| 833200 | dinu | tester         | banglore |
+| 918223 | ajay | developer      | banglore |
+| 831750 | mahi | implementation | banglore |
++--------+------+----------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select*from organization;
++--------+------+----------------+----------+
+| number | name | dept           | address  |
++--------+------+----------------+----------+
+| 833200 | dinu | tester         | banglore |
+| 918223 | ajay | developer      | banglore |
+| 831750 | mahi | implementation | banglore |
++--------+------+----------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> update organization set address="hyderabad"where dept="tester";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from organization;
++--------+------+----------------+-----------+
+| number | name | dept           | address   |
++--------+------+----------------+-----------+
+| 833200 | dinu | tester         | hyderabad |
+| 918223 | ajay | developer      | banglore  |
+| 831750 | mahi | implementation | banglore  |
++--------+------+----------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> delete from organization where dept="implementation";
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from organization;
++--------+------+-----------+-----------+
+| number | name | dept      | address   |
++--------+------+-----------+-----------+
+| 833200 | dinu | tester    | hyderabad |
+| 918223 | ajay | developer | banglore  |
++--------+------+-----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql>
