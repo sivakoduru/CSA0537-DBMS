@@ -1,0 +1,61 @@
+mysql> create database classroom;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use classroom;
+Database changed
+mysql> create table room(stuname varchar(10),stuno int(10),studept varchar(15));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc room;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| stuname | varchar(10) | YES  |     | NULL    |       |
+| stuno   | int(10)     | YES  |     | NULL    |       |
+| studept | varchar(15) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> insert into room values("dinu",269,"CSE");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into room values("ajay",169,"CSE");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into room values("mahi",155,"CSE");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_classroom |
++---------------------+
+| room                |
++---------------------+
+1 row in set (0.02 sec)
+
+mysql> select*from room;
++---------+-------+---------+
+| stuname | stuno | studept |
++---------+-------+---------+
+| dinu    |   269 | CSE     |
+| ajay    |   169 | CSE     |
+| mahi    |   155 | CSE     |
++---------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> alter table room add marks int(3);
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> desc room;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| stuname | varchar(10) | YES  |     | NULL    |       |
+| stuno   | int(10)     | YES  |     | NULL    |       |
+| studept | varchar(15) | YES  |     | NULL    |       |
+| marks   | int(3)      | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql>
