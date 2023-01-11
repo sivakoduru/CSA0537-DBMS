@@ -1,0 +1,76 @@
+mysql> use employee;
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_employee |
++--------------------+
+| ajay               |
+| company            |
+| dinu               |
+| organization       |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> select*from organization;
++--------+------+-----------+-----------+
+| number | name | dept      | address   |
++--------+------+-----------+-----------+
+| 833200 | dinu | tester    | hyderabad |
+| 918223 | ajay | developer | banglore  |
++--------+------+-----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select*from organization where dept="tester";
++--------+------+--------+-----------+
+| number | name | dept   | address   |
++--------+------+--------+-----------+
+| 833200 | dinu | tester | hyderabad |
++--------+------+--------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select*from organization where name="ajay";
++--------+------+-----------+----------+
+| number | name | dept      | address  |
++--------+------+-----------+----------+
+| 918223 | ajay | developer | banglore |
++--------+------+-----------+----------+
+1 row in set (0.00 sec)
+
+mysql> alter table organization add salary int(6);
+Query OK, 2 rows affected (0.03 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> update organization set salary=70000 where dept="tester";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update organization set salary=80000 where dept="developer";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from organization;
++--------+------+-----------+-----------+--------+
+| number | name | dept      | address   | salary |
++--------+------+-----------+-----------+--------+
+| 833200 | dinu | tester    | hyderabad |  70000 |
+| 918223 | ajay | developer | banglore  |  80000 |
++--------+------+-----------+-----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select*from organization where name like 'd%';
++--------+------+--------+-----------+--------+
+| number | name | dept   | address   | salary |
++--------+------+--------+-----------+--------+
+| 833200 | dinu | tester | hyderabad |  70000 |
++--------+------+--------+-----------+--------+
+1 row in set (0.01 sec)
+
+mysql> select*from organization where name like 'a%';
++--------+------+-----------+----------+--------+
+| number | name | dept      | address  | salary |
++--------+------+-----------+----------+--------+
+| 918223 | ajay | developer | banglore |  80000 |
++--------+------+-----------+----------+--------+
+1 row in set (0.00 sec)
+
+mysql>
