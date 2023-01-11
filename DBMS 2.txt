@@ -1,0 +1,96 @@
+mysql> create database employee;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use employee;
+Database changed
+
+mysql> create table dinu(age int(2),number int(10),address varchar(20));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table ajay(age int(2),number int(10),address varchar(20));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into dinu values(21,8332,"nellore");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into ajay values(22,9182,"nellore");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> desc dinu;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| age     | int(2)      | YES  |     | NULL    |       |
+| number  | int(10)     | YES  |     | NULL    |       |
+| address | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> desc ajay;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| age     | int(2)      | YES  |     | NULL    |       |
+| number  | int(10)     | YES  |     | NULL    |       |
+| address | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> select*from dinu;
++------+--------+---------+
+| age  | number | address |
++------+--------+---------+
+|   21 |   8332 | nellore |
++------+--------+---------+
+1 row in set (0.00 sec)
+
+mysql> select*from ajay;
++------+--------+---------+
+| age  | number | address |
++------+--------+---------+
+|   22 |   9182 | nellore |
++------+--------+---------+
+1 row in set (0.00 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_employee |
++--------------------+
+| ajay               |
+| dinu               |
++--------------------+
+2 rows in set (0.00 sec)
+
+mysql> alter table dinu add primary key(age);
+Query OK, 1 row affected (0.03 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> alter table dinu add unique(age);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc dinu;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| age     | int(2)      | NO   | PRI | 0       |       |
+| number  | int(10)     | YES  |     | NULL    |       |
+| address | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> alter table dinu add foreign key(age) references dinu(age);
+Query OK, 1 row affected (0.03 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> desc dinu;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| age     | int(2)      | NO   | PRI | 0       |       |
+| number  | int(10)     | YES  |     | NULL    |       |
+| address | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql>
